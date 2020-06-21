@@ -1,6 +1,0 @@
-﻿function Get-TCProject($NameToSearch=$null){
-    $projectListURL = "$teamCityHost/app/rest/projects"
-    $projectListURLResponse = Invoke-TCWebRequest -URL $projectListURL -Method Get
-    $TeamCityProjects = ([xml]$projectListURLResponse.Content).Projects.project | Where-Object { $_.Name -eq "$NameToSearch" }
-    return $TeamCityProjects
-}
